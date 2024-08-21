@@ -1,19 +1,44 @@
 #include "public.hpp"
 
-int BinarySearch(int arry[], int vaule, int low, int high)
+int BinarySearch1(int arry[], int vaule, int low, int high)
 {
-    int mid = (low + (high - low)) / 2;
+    int mid = low + ((high - low) / 2);
+    // int mid = (high + low )/ 2;
     if (arry[mid] == vaule)
     {
         return mid;
     }
-    if (arry[mid] < vaule)
+    else if (arry[mid] < vaule)
     {
-        return BinarySearch(arry, vaule, mid + 1, high);
+        return BinarySearch1(arry, vaule, mid + 1, high);
     }
-    if (arry[mid] > vaule)
+    else if (arry[mid] > vaule)
     {
-        return BinarySearch(arry, vaule, low, mid - 1);
+        return BinarySearch1(arry, vaule, low, mid - 1);
+    }
+    else
+    {
+        return -1;
+    }
+}
+
+int BinarySearch2(int arry[], int vaule, int low, int high)
+{
+    while (low <= high)
+    {
+        int mid = (high + low )/ 2;
+        if (arry[mid] < vaule)
+        {
+            low = mid + 1;
+        }
+        else if (arry[mid] > vaule)
+        {
+            high = mid - 1;
+        }
+        else
+        {
+            return mid;
+        }
     }
     return -1;
 }

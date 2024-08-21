@@ -2,18 +2,22 @@
 
 int main()
 {
-    int arryA[] = {1, 5, 2, 6, 7, 8, 4, 9};
-    int arryB[] = {1, 2, 3, 5, 6, 7, 8, 9};
+    int arryA[] = {9, 5, 2, 8, 3, 7, 6, 4, 1};
+    int arryB[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
+    int lenA = sizeof(arryA) / sizeof(arryA[0]);
+    int lenB = sizeof(arryB) / sizeof(arryB[0]);
+
+    cout << lenA << " " << lenB << endl;
     int value = 0;
-    cout << "please input the value you want search: ";
+    cout << "value:";
     cin >> value;
 
-    int ret1 = SequenceSearch(arryA, value, sizeof(arryA) / sizeof(arryA[0]));
-    cout << "the position you search in arryA is: " << ret1 << endl;
+    cout << "SequenceSearch position:" << SequenceSearch(arryA, value, lenA) << endl;
 
-    int ret2 = BinarySearch(arryB, value, 0, sizeof(arryB) / sizeof(arryB[0]));
-    cout << "the position you search in arryB is: " << ret2 << endl;
-    
+    cout << "BinarySearch1 position:" << BinarySearch1(arryB, value, 0, lenB - 1) << endl;
+
+    cout << "BinarySearch2 position:" << BinarySearch2(arryB, value, 0, lenB - 1) << endl;
+
     return 0;
 }
