@@ -285,3 +285,19 @@ int list_merge(linklist H1, linklist H2)
 
     return 0;
 }
+
+bool hasCycle(linklist H)
+{
+    linklist slow = H;
+    linklist fast = H->next;
+    while (slow != fast)
+    {
+        if (slow == NULL || fast == NULL)
+        {
+            return false;
+        }
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+    return true;
+}

@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 typedef int data_t;
 #define N 128
@@ -23,5 +24,6 @@ linklist list_free(linklist H);
 int list_reverse(linklist H);
 linklist list_adjmax(linklist H);
 int list_merge(linklist H1, linklist H2);
+bool hasCycle(linklist H);
 
 #endif
