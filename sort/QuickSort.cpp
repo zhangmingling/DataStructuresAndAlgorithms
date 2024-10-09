@@ -17,7 +17,7 @@ int Paritition(int arr[], int low, int high)
         arr[high] = arr[low];
     }
     arr[low] = pivot;
-    return low;
+    return pivot;
 }
 
 void QuickSort(int arr[], int low, int high)
